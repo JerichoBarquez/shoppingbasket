@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<title>Basket List</title>
+</head>
+
+<body>
+	<div class="container">
+	<div style="" class = "jumbotron">
+	
+		<h3>Basket List</h3>
+		<hr>
+		<a th:href="@{/baskets/showFormForAdd}"
+				   class="btn btn-info mb-3 col-2">
+				   <i class="fas fa-shopping-cart"></i>
+					Shop
+		</a>
+		
+		
+		<table class="table table-bordered table-striped table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th>Basket Name</th>
+					<th>Basket</th>
+					<th>Total Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="bask : ${theBaskets}">
+					<td th:text="${bask.basket_name}" />	
+					<td><a th:href="@{/products/showFormForAdd(basket_id=${bask.basket_id})}" class="btn btn-outline-info btn-sm">
+				       <i class="fa fa-shopping-basket fa-fw" aria-hidden="true"></i>
+					ITEMS</a></td>
+					<td th:text="${bask.tot}" />	
+				</tr>
+				<tr>
+					<td></td>
+					<td><b>Total:</b> </td>
+					<td th:text="${totalShop}" />	
+				</tr>
+			</tbody>	
+		</table>
+		</div>
+	</div>
+
+</body>
+</html>

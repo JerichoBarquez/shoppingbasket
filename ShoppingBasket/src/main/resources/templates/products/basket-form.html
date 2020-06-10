@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+<title>Shop</title>
+</head>
+
+<body>
+	<div class="container">
+	<div style="" class = "jumbotron">
+		<h3>Create Basket</h3>
+		<hr>
+
+
+		<form th:action="@{/baskets/save}" th:object="${baskets}" method="POST">
+
+			<input type="hidden" th:field="*{basket_id}" /> <input type="text"
+				th:field="*{basket_name}" class="form-control mb-4 col-4"
+				placeholder="Basket name">
+
+			<button type="submit" class="btn btn-info col-2">
+				<i class="fas fa-save"></i>&nbspSave</button>
+
+		</form>
+
+		<hr>
+		<a th:href="@{/baskets/list/}">Back to Basket List</a>
+</div>
+	</div>
+</body>
+
+</html>
